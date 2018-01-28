@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y -t unstable \
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb && \
     R -e "install.packages(c('shiny', 'rmarkdown'), repos='https://cran.rstudio.com/')" && \
-    R -e "install.packages(c('tidyverse','wordcloud','tm','quanteda', 'pdftools', 'readtext'), repos='https://cran.rstudio.com/')" && \
+    R -e "install.packages(c('tidyverse','wordcloud','tm','quanteda', 'pdftools', 'readtext', 'Rlinkedin', 'RSQLite'), repos='https://cran.rstudio.com/')" && \
     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/ && \
     rm -rf /var/lib/apt/lists/*
 
