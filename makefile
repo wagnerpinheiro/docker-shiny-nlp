@@ -1,8 +1,6 @@
 
 version = 3.5.1-1
-# HELP
-# This will output the help for each task
-# thanks to https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html
+
 .PHONY: help
 
 help: ## This help.
@@ -25,6 +23,14 @@ install-packages-nlp: ## install nlp packages
 
 install-packages-api: ## install api packages
 	R -e "install.packages(c('Rlinkedin','telegram.bot'), repos='https://cran.rstudio.com/')"
+
+install-packages-aws: ## install aws packages
+	R -e "install.packages(c('remotes'), repos='https://cran.rstudio.com/')"
+	R -e "remotes::install_github('cloudyr/aws.dynamodb')"
+
+install-packages-ga: ## install ga packages
+	R -e "install.packages(c('uuid', 'curl'), repos='https://cran.rstudio.com/')"
+	R -e "install.packages('GAlogger', repos = 'http://www.datatailor.be/rcube', type = 'source')"
 	
 install: install-shiny-addons install-packages-nlp install-packages-api install-clean ## install all
 
